@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .selected {
+        background: rgb(255, 0, 0);
+    }
+    li {
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h4>Кликни на элемент списка, чтобы выделить его.</h4>
+    <ul id="ul">
+        <li>Кристофер Робин</li>
+        <li>Винни Пух</li>
+        <li>Тигра</li>
+        <li>Кенга</li>
+        <li>Кролик. Просто кролик</li>
+    </ul>
+</body>
+<script>
+    ul.onclick = function(e) {
+        if(e.ctrlKey) {
+            toggleSelect(e.target);
+        }else {
+            singleSelect(e.target);
+        }
+    }
+    function toggleSelect(li) {
+        li.classList.toggle('selected');
+    }
+    function singleSelect(li) {
+        let selected = ul.querySelectorAll('.selected');
+        for(let elem of selected) {
+            elem.classList.remove('selected');
+        }
+        li.classList.add('selected');
+    }
+</script>
+</html>
